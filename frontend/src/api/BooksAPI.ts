@@ -2,7 +2,7 @@ import { Book } from '../types/Book';
 
 interface FetchProjectsResponse {
   books: Book[];
-  totalNumBooks: number;
+  totalNumProjects: number; // this is still projects because i messed up the backend deploy, but it works and paginates
 }
 
 const API_URL = 'https://mission13-smith-backend-hbekgmceehegfhdz.westus-01.azurewebsites.net/Book';
