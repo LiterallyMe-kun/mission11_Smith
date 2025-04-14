@@ -3,8 +3,8 @@ import { useCart } from '../context/CartContext';
 
 const CartSummary = () => {
   const navigate = useNavigate();
-  const { cart } = useCart();
-  const totalAmount = cart.reduce((sum, item) => sum + item.donationAmount, 0);
+  const { cart, totalPrice } = useCart();
+  const itemCount = cart.length;
 
   return (
     <div
@@ -23,7 +23,14 @@ const CartSummary = () => {
       }}
       onClick={() => navigate('/cart')}
     >
-      🛒 <strong>{totalAmount.toFixed(2)}</strong>
+      🛒 &nbsp; 
+      {itemCount > 0 ? (
+        <>
+          {itemCount} item{itemCount > 1 ? 's' : ''} – ${totalPrice.toFixed(2)}
+        </>
+      ) : (
+        'Cart is empty'
+      )}
     </div>
   );
 };
